@@ -13,6 +13,10 @@ let grid = [
     3,4,5,
     6,7,8
 ]
+
+
+
+
 const newGame = () => {
     let seq = [0,1,2,3,4,5,6,7,8];
     grid = [];
@@ -21,13 +25,19 @@ const newGame = () => {
         grid.push(cur[0]);
     }
 }
+
+
 const shift = (idx) => {
     if (grid[idx-1] == 8) {
-        grid[idx-1] = grid[idx];
-        grid[idx] = 8;
+        if (idx != 3 && idx != 6){
+            grid[idx-1] = grid[idx];
+            grid[idx] = 8;
+        }
     } else if (grid[idx+1] == 8) {
-        grid[idx+1] = grid[idx];
-        grid[idx] = 8;
+        if (idx != 2 && idx != 5){
+            grid[idx+1] = grid[idx];
+            grid[idx] = 8;
+        }
     } else if (grid[idx+3] == 8) {
         grid[idx+3]=grid[idx];
         grid[idx] =8;
@@ -37,6 +47,7 @@ const shift = (idx) => {
     }
     display();
 }
+
 const checkWin = () => {
     for (let i=0;i<9;i++) {
         if (grid[i]!=i) {
@@ -45,6 +56,7 @@ const checkWin = () => {
     }
     return true;
 }
+
 const display = () => {
     let gridDiv = document.querySelector('.grid').cloneNode(false);
     for (let i=0;i<9;i++) {
@@ -67,6 +79,10 @@ const display = () => {
 }
 newGame();
 display();
+
+
+
+
 document.querySelector('button').addEventListener('click', ()=>{
     newGame();
     display();
