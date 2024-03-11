@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #F3F3F3;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 220px 220px 220px;
+    grid-template-rows: 180px 180px 180px;
+    justify-content: center;
+    background-color: white;
+    gap: 2px;
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+button {
+    padding: 10px;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    color: white;
+}
